@@ -56,7 +56,7 @@ export function TeamGrid({
                     {member.role}
                   </p>
                   {member.credentials && (
-                    <p className="mt-2 text-[0.85rem] italic font-editorial text-essence-gold">
+                    <p className="tagline-editorial mt-2 text-[0.85rem] text-essence-gold">
                       {member.credentials}
                     </p>
                   )}

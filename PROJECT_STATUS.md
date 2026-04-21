@@ -1,6 +1,6 @@
 # Essence Medspa V7a — Project Status
 
-_Last updated: 2026-04-16_
+_Last updated: 2026-04-21_
 
 Single source of truth for "where are we right now and what's still open." Update this file whenever a significant chunk of work lands or a new item surfaces.
 
@@ -42,19 +42,18 @@ All verified by `npm run build` (133 static pages, 0 errors).
 - **Bug found + fixed:** `news-events.articleCategory` filter string was `"Essence News & Events"` but MDX frontmatter is `"Essence Medspa News & Events"` — so that category rendered 0 articles. One-line fix in `CATEGORY_MAP`.
 - **Verified:** build produces `.next/server/app/blog/{advanced-aesthetics,facial-peels,massage-body,news-events,skincare-wellness}.html`, each with "5 Articles in …" heading.
 
-### 3.2 Git initialization
-- Repo is NOT a git repo (`.gitignore` exists but no `.git`). Before touching this: confirm with Islam which GitHub org/name to use.
-- Once confirmed: `git init` · initial commit · add remote · push · connect Netlify.
+### 3.2 Git initialization — ✅ RESOLVED (2026-04-21)
+- Repo initialized, pushed to [CharlieBar/essencemedspa](https://github.com/CharlieBar/essencemedspa) on `main` (old broken files wiped via force push). Netlify auto-deploying from `main` — site live at [essencemedspa.netlify.app](https://essencemedspa.netlify.app/).
 
 ### 3.3 Pre-compaction carryover items
 These surfaced in earlier sessions and were deferred:
 
-- [ ] **favicon.ico 404** — public/favicon.ico is missing or routed wrong. Check `src/app/icon.tsx` / `src/app/favicon.ico`.
-- [ ] **Missing internal link** — `src/content/articles/what-is-a-back-facial.mdx` should link to `/services/back-microdermabrasion` (currently referenced in prose without a link).
-- [ ] **Verify subagent-written service content** — during blog enrichment a subagent wrote claims that may be fabricated. Spot-check against business reality:
-  - `red-carpet-collagen` — claim of "4-phase protocol"
-  - `firming-facial` — claim about DMAE usage
-  - `oxygen-facial` — claim about serum customization
+- [x] **favicon.ico 404** — RESOLVED (2026-04-21). Generated `src/app/favicon.ico` (16/32/48 multi-size) matching the Essence "E" mark from `icon.svg`.
+- [x] **Missing internal link** — RESOLVED. Audit found `src/content/articles/what-is-a-back-facial.mdx:81` already links `[back microdermabrasion](/services/back-microdermabrasion)`. Status doc was stale.
+- [ ] **Verify subagent-written service content** — during blog enrichment a subagent wrote claims that may be fabricated. NEEDS ISLAM REVIEW — these are detailed technical claims that only the business can confirm:
+  - `red-carpet-collagen-facial.ts` — 4-phase protocol (hydration → toning → collagen peptide infusion → collagen mask), DMAE in phase 2, 20-min mask dwell time, $215 / $590 pricing
+  - `firming-facial.ts` — 4-step protocol with DMAE tensor effect, 15-min intensive lifting mask, 48–72hr results peak, $215 / $590 pricing
+  - `oxygen-facial.ts` — pressurized O2 serum infusion, customized blends (hydration / brightening / anti-aging), 20–25 min infusion phase, $159 / $430 pricing
 
 ---
 
@@ -84,16 +83,13 @@ Key pages at 375 / 768 / 1024 / 1440: homepage, a service page, a blog post, con
 
 Items I noticed during the 8-step pass that are worth considering but weren't in scope:
 
-### 5.1 Typography
-- **Card-tagline label inconsistency.** The "tagline under card headline" pattern appears in two flavors:
-  - Uppercase `tracking-brand` gold (ServiceCategoryGroup, HubServicesList, concerns page, ServiceGrid) — 4 uses
-  - Italic `font-editorial` gold (RelatedServices, ConcernsCarousel, TeamGrid credentials) — 3 uses
-  
-  Both are "decorative tagline" but with different treatments. Could either:
-  - (a) Pick one flavor, convert the other → more consistent
-  - (b) Formalize as two utilities: `.tagline-label` (uppercase) + `.tagline-editorial` (italic) and document when to use each
-  
-  My recommendation: **(b)** — they solve different problems (label vs phrase).
+### 5.1 Typography — ✅ RESOLVED (2026-04-21)
+- `.tagline-label` + `.tagline-editorial` utilities formalized in `src/app/globals.css:177-200` with documentation for when to use each.
+- Adopted across: ConcernsCarousel, RelatedServices, HubServicesList, ServiceCategoryGroup, TeamGrid (credentials), concerns page.
+- `ServiceGrid.tsx:92` left on raw classes intentionally — it uses a larger 0.85rem size for primary service-card visual weight, which the 0.7rem utility default would shrink.
+
+### 5.5 FAQ accordion red accent top-bar — ✅ RESOLVED
+- Already in place (`FAQAccordion.tsx:50-55`): `w-0.5` vertical accent stripe scales on `group-hover` and open state. Matches the Step 5 card treatment.
 
 ### 5.2 Framer Motion timing drift
 Motion variants across `HeroSection.tsx` use 1s / 1.2s / 2s durations with cascading delays (0.4 → 2.1s). Feels intentional but slightly over-long on the homepage. Also inconsistent with the new 300/500 ms transition scale (though framer-motion entrances are semantically different from CSS transitions).
@@ -138,11 +134,11 @@ After Step 6, megamenu links now use `group-hover:text-essence-accent` (interact
 
 ## 8. Recommended next actions (ordered)
 
-1. **Create `src/app/blog/[category]/page.tsx`** — unblocks the 5 category links (high-impact, ~20 min work).
-2. **Fix favicon.ico** — trivial but visually embarrassing in the tab (5 min).
-3. **Verify the 3 subagent-authored service claims** — mitigates the risk of false marketing copy (15 min spot-check).
-4. **Add the missing internal link in `what-is-a-back-facial.mdx`** (2 min).
-5. **Git init + first commit + push** — locks in all the design polish work (15 min once repo name decided).
-6. **Deploy to Netlify** — gets production URL for real performance/SEO audits.
-7. **Lighthouse + mobile responsiveness pass** against the deployed site.
-8. **Address Section 5 improvements** in a follow-up polish pass if appetite remains.
+1. ~~Blog category pages~~ — ✅ done (see §3.1)
+2. ~~Favicon.ico~~ — ✅ done (see §3.3)
+3. **Verify the 3 subagent-authored service claims** (§3.3) — NEEDS ISLAM REVIEW. Claims are detailed enough that a human who knows the spa's actual protocols must confirm.
+4. ~~Missing internal link in `what-is-a-back-facial.mdx`~~ — ✅ already present
+5. ~~Git init + push~~ — ✅ done (see §3.2)
+6. ~~Deploy to Netlify~~ — ✅ live
+7. **Lighthouse + mobile responsiveness pass** against the live [essencemedspa.netlify.app](https://essencemedspa.netlify.app/).
+8. **Remaining §5 improvements** (low-priority polish): 5.2 HeroSection framer-motion timing trim, 5.3/5.4 border token formalization, 5.6 megamenu dropdown accent.

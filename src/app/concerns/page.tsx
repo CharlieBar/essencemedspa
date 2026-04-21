@@ -76,7 +76,7 @@ export default function ConcernsPage() {
                     <h3 className="font-display text-2xl leading-tight text-essence-white">
                       {concern.name}
                     </h3>
-                    <p className="mt-2 text-[0.7rem] uppercase tracking-brand text-essence-gold">
+                    <p className="tagline-label mt-2 text-essence-gold">
                       {concern.tagline}
                     </p>
                     <p className="mt-4 text-[0.9rem] leading-[1.7] text-essence-white-off">
