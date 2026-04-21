@@ -55,40 +55,62 @@ export function ServiceCategoryGroup({
         </div>
 
         <div className="grid gap-px bg-white/5 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => (
-            <Reveal key={service.slug} delay={(i % 3) * 0.05}>
-              <div className="group relative flex h-full flex-col bg-essence-black-soft p-8 transition-colors duration-500 ease-essence hover:bg-essence-black min-h-[300px]">
-                <span aria-hidden className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-essence-accent transition-transform duration-500 ease-essence group-hover:scale-x-100" />
-                <h3 className="font-display text-xl leading-tight text-essence-white">
-                  {service.name}
-                </h3>
-                <p className="mt-2 tagline-label text-essence-gold">
-                  {service.tagline}
-                </p>
-                <p className="mt-4 text-[0.9rem] leading-[1.7] text-essence-white-off line-clamp-3">
-                  {service.description}
-                </p>
-                {service.startingPrice && (
-                  <p className="mt-4 font-display text-essence-accent">
-                    {service.startingPrice}
-                  </p>
-                )}
-                <div className="mt-auto pt-8">
-                  <Link
-                    href={`/services/${service.slug}`}
-                    className="group/link inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-brand text-essence-white-off transition-colors duration-300 hover:text-essence-white"
-                    aria-label={`${serviceCardCTA} about ${service.name}`}
+          {services.map((service, i) => {
+            const num = String(i + 1).padStart(2, "0");
+            return (
+              <Reveal key={service.slug} delay={(i % 3) * 0.05}>
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="group relative flex h-full min-h-[320px] flex-col overflow-hidden bg-essence-black-soft p-8 transition-all duration-500 ease-essence hover:-translate-y-1 hover:bg-essence-black"
+                  aria-label={`${serviceCardCTA} about ${service.name}`}
+                >
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-essence-accent transition-transform duration-500 ease-essence group-hover:scale-x-100"
+                  />
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute -right-5 -top-4 font-display text-[5.5rem] italic leading-none text-essence-gold/10 transition-all duration-500 ease-essence group-hover:text-essence-gold/25"
                   >
-                    <span>{serviceCardCTA}</span>
-                    <ArrowUpRight
-                      className="h-3.5 w-3.5 text-essence-accent transition-transform duration-500 ease-essence group-hover/link:translate-x-1 group-hover/link:-translate-y-1"
-                      strokeWidth={1.5}
-                    />
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
-          ))}
+                    {num}
+                  </span>
+
+                  <div className="relative">
+                    <h3 className="font-display text-2xl font-medium leading-[1.15] text-essence-white">
+                      {service.name}
+                    </h3>
+                    <p className="mt-2 tagline-label text-essence-gold">
+                      {service.tagline}
+                    </p>
+                    <p className="mt-4 text-[0.9rem] leading-[1.7] text-essence-white-off line-clamp-3">
+                      {service.description}
+                    </p>
+                  </div>
+
+                  <div className="mt-auto flex items-end justify-between gap-4 pt-8">
+                    {service.startingPrice ? (
+                      <span className="font-display text-lg font-medium text-essence-accent">
+                        {service.startingPrice}
+                      </span>
+                    ) : (
+                      <span className="eyebrow-sm text-essence-white-off transition-colors duration-500 group-hover:text-essence-white">
+                        {serviceCardCTA}
+                      </span>
+                    )}
+                    <span
+                      aria-hidden
+                      className="flex h-10 w-10 shrink-0 items-center justify-center border border-essence-accent/30 text-essence-accent transition-all duration-500 ease-essence group-hover:border-essence-accent group-hover:bg-essence-accent group-hover:text-essence-white"
+                    >
+                      <ArrowUpRight
+                        className="h-4 w-4 transition-transform duration-500 ease-essence group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        strokeWidth={1.5}
+                      />
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>

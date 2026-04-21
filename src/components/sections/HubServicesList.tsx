@@ -34,63 +34,64 @@ export function HubServicesList({
             const num = String(i + 1).padStart(2, "0");
             return (
               <Reveal key={service.slug} delay={(i % 3) * 0.05}>
-                <div className="group relative flex flex-col bg-essence-black-soft p-10 hover:bg-essence-black transition-colors duration-500 ease-essence h-full min-h-[360px]">
-                  <span aria-hidden className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-essence-accent transition-transform duration-500 ease-essence group-hover:scale-x-100" />
-                  {/* Ghost number */}
-                  <div className="flex justify-end">
-                    <span
-                      aria-hidden
-                      className="font-display text-5xl text-essence-accent/10"
-                    >
-                      {num}
-                    </span>
-                  </div>
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="group relative flex h-full min-h-[360px] flex-col overflow-hidden bg-essence-black-soft p-10 transition-all duration-500 ease-essence hover:-translate-y-1 hover:bg-essence-black"
+                  aria-label={`Learn more about ${service.name}`}
+                >
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-essence-accent transition-transform duration-500 ease-essence group-hover:scale-x-100"
+                  />
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute -right-5 -top-4 font-display text-[5.5rem] italic leading-none text-essence-gold/10 transition-all duration-500 ease-essence group-hover:text-essence-gold/25"
+                  >
+                    {num}
+                  </span>
 
-                  {/* Service name */}
-                  <h3 className="font-display text-2xl text-essence-white leading-tight mt-2">
-                    {service.name}
-                  </h3>
+                  <div className="relative flex flex-1 flex-col">
+                    <h3 className="font-display text-2xl font-medium leading-[1.15] text-essence-white">
+                      {service.name}
+                    </h3>
+                    <p className="tagline-label text-essence-gold mt-2">
+                      {service.tagline}
+                    </p>
+                    <p className="text-[0.9rem] leading-[1.7] text-essence-white-off mt-4">
+                      {service.description}
+                    </p>
 
-                  {/* Tagline */}
-                  <p className="tagline-label text-essence-gold mt-2">
-                    {service.tagline}
-                  </p>
-
-                  {/* Description */}
-                  <p className="text-[0.9rem] leading-[1.7] text-essence-white-off mt-4">
-                    {service.description}
-                  </p>
-
-                  {/* Highlights */}
-                  {service.highlights && service.highlights.length > 0 && (
-                    <ul className="mt-4 grid gap-1.5 text-[0.8rem] text-essence-muted">
-                      {service.highlights.map((h) => (
-                        <li key={h} className="flex items-start gap-2">
-                          <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-essence-accent" />
-                          {h}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {/* Footer row */}
-                  <div className="mt-auto pt-8 flex items-center justify-between">
-                    {service.startingPrice ? (
-                      <span className="font-display text-essence-accent text-lg">
-                        {service.startingPrice}
-                      </span>
-                    ) : (
-                      <span />
+                    {service.highlights && service.highlights.length > 0 && (
+                      <ul className="mt-4 grid gap-1.5 text-[0.8rem] text-essence-muted">
+                        {service.highlights.map((h) => (
+                          <li key={h} className="flex items-start gap-2">
+                            <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-essence-accent" />
+                            {h}
+                          </li>
+                        ))}
+                      </ul>
                     )}
-                    <Link
-                      href={`/services/${service.slug}`}
-                      className="flex h-12 w-12 items-center justify-center border border-essence-accent rounded-full text-essence-accent hover:bg-essence-accent hover:text-essence-white transition-colors duration-500 ease-essence"
-                      aria-label={`Learn more about ${service.name}`}
-                    >
-                      <ArrowUpRight className="h-4 w-4" strokeWidth={1.5} />
-                    </Link>
+
+                    <div className="mt-auto flex items-end justify-between gap-4 pt-8">
+                      {service.startingPrice ? (
+                        <span className="font-display text-lg font-medium text-essence-accent">
+                          {service.startingPrice}
+                        </span>
+                      ) : (
+                        <span />
+                      )}
+                      <span
+                        aria-hidden
+                        className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-essence-accent text-essence-accent transition-all duration-500 ease-essence group-hover:bg-essence-accent group-hover:text-essence-white"
+                      >
+                        <ArrowUpRight
+                          className="h-4 w-4 transition-transform duration-500 ease-essence group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                          strokeWidth={1.5}
+                        />
+                      </span>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </Reveal>
             );
           })}
