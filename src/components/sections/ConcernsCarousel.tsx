@@ -40,25 +40,44 @@ export function ConcernsCarousel({
             <Reveal key={c.slug} delay={(i % 4) * 0.08}>
               <Link
                 href={`/concerns/${c.slug}`}
-                className="group relative flex h-full flex-col justify-between border border-white/10 bg-essence-black-soft/60 p-8 transition-all duration-500 ease-essence hover:border-essence-accent hover:bg-essence-black-soft hover:-translate-y-0.5 min-h-[260px]"
+                className="group relative flex h-full min-h-[300px] flex-col justify-between overflow-hidden border border-white/10 bg-essence-black-soft p-8 transition-all duration-500 ease-essence hover:-translate-y-1 hover:border-essence-accent/60"
               >
-                <div>
-                  <div className="text-[0.65rem] uppercase tracking-brand text-essence-accent">
+                <span
+                  aria-hidden
+                  className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-essence-accent transition-transform duration-500 ease-essence group-hover:scale-x-100"
+                />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute -right-6 -top-6 font-display text-[6rem] italic leading-none text-essence-gold/10 transition-all duration-500 ease-essence group-hover:text-essence-gold/25"
+                >
+                  0{i + 1}
+                </span>
+
+                <div className="relative">
+                  <div className="eyebrow-sm text-essence-accent">
                     Concern · 0{i + 1}
                   </div>
-                  <h3 className="mt-4 font-display text-xl leading-tight text-essence-white">
+                  <h3 className="mt-5 font-display text-2xl font-medium leading-[1.15] text-essence-white transition-colors duration-500 group-hover:text-essence-white">
                     {c.name}
                   </h3>
-                  <p className="mt-3 tagline-editorial text-essence-gold">
+                  <p className="mt-3 tagline-editorial text-[0.95rem] text-essence-gold">
                     {c.tagline}
                   </p>
                 </div>
-                <div className="mt-8 flex items-center justify-between text-[0.7rem] uppercase tracking-brand text-essence-white-off">
-                  <span>See Solutions</span>
-                  <ArrowUpRight
-                    className="h-4 w-4 text-essence-accent transition-transform duration-500 ease-essence group-hover:translate-x-1 group-hover:-translate-y-1"
-                    strokeWidth={1.5}
-                  />
+
+                <div className="mt-8 flex items-center justify-between gap-4">
+                  <span className="eyebrow-sm text-essence-white-off transition-colors duration-500 group-hover:text-essence-white">
+                    See Solutions
+                  </span>
+                  <span
+                    aria-hidden
+                    className="flex h-10 w-10 shrink-0 items-center justify-center border border-essence-accent/30 text-essence-accent transition-all duration-500 ease-essence group-hover:border-essence-accent group-hover:bg-essence-accent group-hover:text-essence-white"
+                  >
+                    <ArrowUpRight
+                      className="h-4 w-4 transition-transform duration-500 ease-essence group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      strokeWidth={1.5}
+                    />
+                  </span>
                 </div>
               </Link>
             </Reveal>

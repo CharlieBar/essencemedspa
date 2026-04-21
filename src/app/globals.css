@@ -117,6 +117,19 @@ a {
   100% { transform: translateX(-50%); }
 }
 
+/* ─── Display headline baseline weight ───
+ * Body sets font-weight: 300, which bleeds into Bodoni display headlines and
+ * renders them anemic at card/inline sizes. Lift .font-display to 400 so
+ * Bodoni reads as intended; override per-element with Tailwind font-medium /
+ * font-semibold where a bolder treatment is wanted. Scoped to @layer base so
+ * Tailwind utilities (font-medium / font-semibold) win on override.
+ */
+@layer base {
+  .font-display {
+    font-weight: 400;
+  }
+}
+
 /* ─── Display headline italic emphasis (gold Instrument Serif) ─── */
 .headline em {
   font-family: var(--font-editorial), "Instrument Serif", serif;

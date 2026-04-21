@@ -64,27 +64,27 @@ export function ToolsShowcase({
               <Reveal key={tool.id} delay={i * 0.08}>
                 <Link
                   href={tool.href}
-                  className={`group relative flex h-full flex-col ${cardBg} p-10 transition-colors duration-500 ${cardHoverBg}`}
+                  className={`group relative flex h-full flex-col ${cardBg} p-10 transition-all duration-500 ease-essence ${cardHoverBg} hover:-translate-y-1`}
                   aria-label={`Open ${tool.label}`}
                 >
                   <span
                     aria-hidden
-                    className="absolute inset-x-0 top-0 h-px origin-left scale-x-0 bg-essence-accent transition-transform duration-500 ease-essence group-hover:scale-x-100"
+                    className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-essence-accent transition-transform duration-500 ease-essence group-hover:scale-x-100"
                   />
 
-                  <div className="mb-8 flex items-center justify-between">
-                    <span className="eyebrow-sm text-essence-muted">
+                  <div className="mb-8 flex items-start justify-between">
+                    <span className="eyebrow-sm text-essence-muted pt-4">
                       Tool {tool.number}
                     </span>
-                    <div className="flex h-11 w-11 items-center justify-center border border-essence-accent/40 text-essence-accent transition-all duration-500 ease-essence group-hover:border-essence-accent group-hover:bg-essence-accent group-hover:text-essence-white">
-                      <Icon className="h-5 w-5" strokeWidth={1.25} />
+                    <div className="flex h-14 w-14 items-center justify-center border border-essence-accent/40 text-essence-accent transition-all duration-500 ease-essence group-hover:border-essence-accent group-hover:bg-essence-accent group-hover:text-essence-white group-hover:rotate-3">
+                      <Icon className="h-6 w-6" strokeWidth={1.25} />
                     </div>
                   </div>
 
-                  <div className="font-editorial italic text-essence-gold text-[1rem] mb-2">
+                  <div className="tagline-editorial text-essence-gold text-[1rem] mb-2">
                     {tool.tagline}
                   </div>
-                  <h3 className="font-display text-2xl leading-tight text-essence-white">
+                  <h3 className="font-display text-2xl font-medium leading-tight text-essence-white">
                     {tool.label}
                   </h3>
                   <p className="mt-4 flex-1 text-[0.95rem] leading-[1.8] text-essence-white-off">
@@ -95,10 +95,10 @@ export function ToolsShowcase({
                     <span className="eyebrow-sm text-essence-muted">
                       {tool.meta}
                     </span>
-                    <span className="inline-flex items-center gap-2 text-[0.75rem] uppercase tracking-eyebrow text-essence-accent transition-all duration-300 group-hover:gap-3">
+                    <span className="inline-flex items-center gap-2 text-[0.8rem] uppercase tracking-eyebrow font-medium text-essence-accent transition-all duration-300 group-hover:gap-3">
                       {tool.cta}
                       <ArrowUpRight
-                        className="h-3.5 w-3.5 transition-transform duration-500 ease-essence group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        className="h-4 w-4 transition-transform duration-500 ease-essence group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                         strokeWidth={1.5}
                       />
                     </span>
