@@ -1,0 +1,147 @@
+/*
+ * Essence MedSpa — Design Tokens
+ * CSS Custom Properties
+ * Stack: Next.js / WordPress / Any CSS
+ * Source: essence-medspa-design.html
+ * Extracted: 2026-04-14
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Instrument+Serif:ital@0;1&family=Outfit:wght@200;300;400;500;600&display=swap');
+
+:root {
+
+  /* ─── COLORS ─── */
+  --color-black:        #0A0A0A;
+  --color-black-soft:   #141414;
+  --color-white:        #FAFAFA;
+  --color-white-off:    #E8E4E0;
+  --color-accent:       #FF3D00;
+  --color-accent-dark:  #CC3100;
+  --color-gold:         #C4A052;
+  --color-gold-light:   #DFC07A;
+  --color-muted:        #6B6B6B;
+
+  /* Surfaces & Opacity Scales */
+  --surface-nav-bg:             rgba(10, 10, 10, 0.9);
+  --surface-service-grid:       rgba(255, 255, 255, 0.05);
+  --surface-service-ghost:      rgba(255, 255, 255, 0.03);
+  --surface-service-ghost-hover:rgba(0, 0, 0, 0.1);
+  --surface-icon-border:        rgba(255, 255, 255, 0.2);
+  --surface-icon-border-hover:  rgba(255, 255, 255, 0.5);
+  --surface-icon-bg-hover:      rgba(255, 255, 255, 0.1);
+  --surface-footer-border:      rgba(255, 255, 255, 0.05);
+  --surface-social-border:      rgba(255, 255, 255, 0.1);
+  --surface-cursor-hover:       rgba(196, 160, 82, 0.1);
+
+  /* Gradients */
+  --gradient-hero-desktop: linear-gradient(90deg, #0A0A0A 0%, #0A0A0A 40%, transparent 100%);
+  --gradient-hero-mobile:  linear-gradient(0deg, #0A0A0A 20%, rgba(10,10,10,0.8) 100%);
+  --gradient-service-hover:linear-gradient(135deg, #FF3D00 0%, #CC3100 100%);
+
+  /* ─── TYPOGRAPHY ─── */
+  --font-display:   'Bodoni Moda', serif;
+  --font-editorial: 'Instrument Serif', serif;
+  --font-body:      'Outfit', sans-serif;
+
+  /* Font Size Scale */
+  --text-loader:        clamp(3rem, 12vw, 8rem);
+  --text-hero:          clamp(4rem, 10vw, 9rem);
+  --text-services-h:    clamp(3rem, 7vw, 6rem);
+  --text-cta-h:         clamp(3rem, 8vw, 7rem);
+  --text-about-h:       clamp(2.5rem, 5vw, 4.5rem);
+  --text-testimonial-q: clamp(1.8rem, 4vw, 3.5rem);
+  --text-stat:          4rem;
+  --text-service-name:  2rem;
+  --text-ghost-num:     6rem;
+  --text-quote-mark:    10rem;
+  --text-footer-brand:  1.5rem;
+  --text-footer-tag:    1.2rem;
+  --text-logo:          1.3rem;
+  --text-body-lg:       1.1rem;
+  --text-body-md:       1rem;
+  --text-body-sm:       0.95rem;
+  --text-author:        0.85rem;
+  --text-footer-link:   0.9rem;
+  --text-btn-cta:       0.8rem;
+  --text-ui-sm:         0.75rem;
+  --text-ui-xs:         0.7rem;
+  --text-scroll:        0.65rem;
+
+  /* Letter Spacing */
+  --tracking-logo:      0.4em;
+  --tracking-eyebrow:   0.4em;
+  --tracking-brand:     0.3em;
+  --tracking-marquee:   0.3em;
+  --tracking-author:    0.3em;
+  --tracking-nav:       0.2em;
+  --tracking-btn:       0.2em;
+  --tracking-hero-btn:  0.15em;
+  --tracking-role:      0.1em;
+
+  /* Line Heights */
+  --leading-hero:        0.95;
+  --leading-services:    1.0;
+  --leading-cta:         1.1;
+  --leading-about:       1.15;
+  --leading-testimonial: 1.5;
+  --leading-service-desc:1.8;
+  --leading-hero-desc:   1.9;
+  --leading-about-body:  2.0;
+
+  /* ─── SPACING ─── */
+  --space-section-y:       12rem;
+  --space-about-pad:       8rem;
+  --space-footer-top:      8rem;
+  --space-footer-bottom:   3rem;
+  --space-page-x:          4%;
+  --space-page-x-alt:      5%;
+  --space-services-gap:    6rem;
+  --space-service-card:    4rem;
+  --space-footer-grid:     4rem;
+  --space-footer-top-mb:   6rem;
+  --space-hero-tag-b:      3rem;
+  --space-hero-desc-b:     3rem;
+  --space-cta-tag-b:       2rem;
+  --space-cta-title-b:     2rem;
+  --space-cta-text-b:      3rem;
+  --space-about-title-b:   2rem;
+  --space-about-text-b:    4rem;
+  --space-testimonial-q-b: 4rem;
+  --space-stat-gap:        5rem;
+  --space-hero-cta-gap:    2rem;
+  --space-marquee-gap:     4rem;
+
+  /* Max Widths */
+  --max-hero-content: 800px;
+  --max-about-text:   500px;
+  --max-cta-text:     500px;
+  --max-testimonial:  1000px;
+  --max-service-desc: 350px;
+
+  /* ─── EFFECTS ─── */
+  /* Transitions */
+  --ease-essence:           cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-dramatic:          cubic-bezier(0.76, 0, 0.24, 1);
+
+  --transition-fast:        0.3s ease;
+  --transition-normal:      0.4s ease;
+  --transition-medium:      0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  --transition-slow:        0.5s cubic-bezier(0.65, 0, 0.35, 1);
+  --transition-reveal:      0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  --transition-image:       1.5s cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* Borders */
+  --border-footer:   1px solid rgba(255, 255, 255, 0.05);
+  --border-social:   1px solid rgba(255, 255, 255, 0.1);
+  --border-icon:     1px solid rgba(255, 255, 255, 0.2);
+  --border-accent:   1px solid #FF3D00;
+  --border-muted:    1px solid #6B6B6B;
+
+  /* Z-Index */
+  --z-grain:       9997;
+  --z-loader:      9999;
+  --z-cursor:      10000;
+  --z-cursor-dot:  10001;
+  --z-progress:    100;
+  --z-nav:         1000;
+}

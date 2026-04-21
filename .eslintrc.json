@@ -1,0 +1,12 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "react/no-unescaped-entities": "off"
+  },
+  "ignorePatterns": [
+    "essence-medspa-content/**",
+    "design-system/**",
+    ".next/**",
+    "node_modules/**"
+  ]
+}

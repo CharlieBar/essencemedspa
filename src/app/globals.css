@@ -1,0 +1,206 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Essence MedSpa Design Tokens ─── */
+/*
+ * ROLE ASSIGNMENT:
+ *   --color-accent (red)  → INTERACTIVE. Buttons, link underlines, arrow icons,
+ *                           section eyebrow rules, card hover bars, focus rings,
+ *                           selected states, progress bars, numeric emphasis.
+ *                           This is the color that SAYS something is clickable
+ *                           or carries current state. Decorative red is allowed
+ *                           only at low opacity (≤/30) as ghost/tint accents.
+ *
+ *   --color-gold           → EDITORIAL / DECORATIVE. Italic emphasis, card taglines,
+ *                           credentials, star ratings, premium price tags, quiet
+ *                           success text. Gold is STATIC — it does not shift on
+ *                           hover. If you find yourself writing hover:text-gold,
+ *                           prefer red instead (or leave color unchanged).
+ */
+:root {
+  /* Colors — crisp, contrast-tuned for WCAG AA on --color-black */
+  --color-black: #050505;
+  --color-black-soft: #121212;
+  --color-white: #ffffff;
+  --color-white-off: #eeeae6;
+  --color-accent: #ff4418;
+  --color-accent-dark: #cc3510;
+  --color-gold: #cba858;
+  --color-gold-light: #e4c985;
+  --color-muted: #8a8a8a;
+
+  /* Surfaces */
+  --surface-nav-bg: rgba(5, 5, 5, 0.88);
+  --surface-service-grid: rgba(255, 255, 255, 0.06);
+  --surface-service-ghost: rgba(255, 255, 255, 0.03);
+  --surface-icon-border: rgba(255, 255, 255, 0.22);
+  --surface-icon-border-hover: rgba(255, 255, 255, 0.55);
+  --surface-icon-bg-hover: rgba(255, 255, 255, 0.1);
+  --surface-footer-border: rgba(255, 255, 255, 0.06);
+  --surface-social-border: rgba(255, 255, 255, 0.12);
+
+  /* Easing */
+  --ease-essence: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-dramatic: cubic-bezier(0.76, 0, 0.24, 1);
+
+  /* Page padding */
+  --space-page-x: 4%;
+  --space-page-x-alt: 5%;
+}
+
+/* ─── Base Reset ─── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-black);
+  color: var(--color-white-off);
+  font-family: var(--font-body), "Outfit", sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-white);
+}
+
+/* Subtle global focus ring matching brand */
+:focus-visible {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+button,
+a {
+  cursor: pointer;
+}
+
+/* ─── Reveal-on-scroll defaults (CSS fallback) ─── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 700ms var(--ease-essence),
+    transform 700ms var(--ease-essence);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-delay-1.is-visible { transition-delay: 80ms; }
+.reveal-delay-2.is-visible { transition-delay: 160ms; }
+.reveal-delay-3.is-visible { transition-delay: 240ms; }
+
+/* ─── Marquee track ─── */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 25s linear infinite;
+}
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ─── Display headline italic emphasis (gold Instrument Serif) ─── */
+.headline em {
+  font-family: var(--font-editorial), "Instrument Serif", serif;
+  font-style: italic;
+  color: var(--color-gold);
+  font-weight: 400;
+}
+
+/* ─── Word reveal mask wrapper ─── */
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: 1;
+}
+.word-mask > span {
+  display: inline-block;
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee-track { animation: none; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ─── Page padding utilities ─── */
+.px-page { padding-left: var(--space-page-x); padding-right: var(--space-page-x); }
+.px-page-alt { padding-left: var(--space-page-x-alt); padding-right: var(--space-page-x-alt); }
+
+/* ─── Eyebrow typography ─── */
+/* Canonical section eyebrow — pair with a Tailwind text-* color class */
+.eyebrow {
+  font-size: 0.7rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-family: var(--font-body), "Outfit", sans-serif;
+  font-weight: 400;
+}
+/* Compact eyebrow — used for card categories & tiny labels */
+.eyebrow-sm {
+  font-size: 0.65rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  font-family: var(--font-body), "Outfit", sans-serif;
+  font-weight: 400;
+}
+
+/* ─── Card tagline utilities ───
+ * Two distinct flavors, applied to the tagline directly beneath a card headline.
+ * Color is intentionally left to the caller (typically text-essence-gold).
+ *
+ *   .tagline-label     → Uppercase, spaced label. Use when the tagline acts as
+ *                        a categorical marker (price tier, category, stat).
+ *                        e.g. "FACIAL TREATMENTS", "$215 · 60 MIN"
+ *
+ *   .tagline-editorial → Italic editorial phrase. Use when the tagline is a
+ *                        reading phrase that describes or complements the card.
+ *                        e.g. "The 60-min expression-line version"
+ */
+.tagline-label {
+  font-size: 0.7rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-family: var(--font-body), "Outfit", sans-serif;
+  font-weight: 400;
+}
+.tagline-editorial {
+  font-family: var(--font-editorial), "Instrument Serif", serif;
+  font-style: italic;
+}
+
+/* ─── Section vertical rhythm ─── */
+.section-y { padding-top: 8rem; padding-bottom: 8rem; }
+@media (min-width: 768px) {
+  .section-y { padding-top: 12rem; padding-bottom: 12rem; }
+}

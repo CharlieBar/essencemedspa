@@ -1,0 +1,82 @@
+{
+  "_instructions": "Merge the 'theme.extend' block into your tailwind.config.ts. Add the Google Fonts import to your layout.tsx or globals.css.",
+  "_googleFonts": "https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Instrument+Serif:ital@0;1&family=Outfit:wght@200;300;400;500;600&display=swap",
+  "theme": {
+    "extend": {
+      "colors": {
+        "essence": {
+          "black":       "#0A0A0A",
+          "black-soft":  "#141414",
+          "white":       "#FAFAFA",
+          "white-off":   "#E8E4E0",
+          "accent":      "#FF3D00",
+          "accent-dark": "#CC3100",
+          "gold":        "#C4A052",
+          "gold-light":  "#DFC07A",
+          "muted":       "#6B6B6B"
+        }
+      },
+      "fontFamily": {
+        "display":   ["Bodoni Moda", "serif"],
+        "editorial": ["Instrument Serif", "serif"],
+        "body":      ["Outfit", "sans-serif"]
+      },
+      "backgroundImage": {
+        "hero-overlay-desktop": "linear-gradient(90deg, #0A0A0A 0%, #0A0A0A 40%, transparent 100%)",
+        "hero-overlay-mobile":  "linear-gradient(0deg, #0A0A0A 20%, rgba(10,10,10,0.8) 100%)",
+        "service-card-hover":   "linear-gradient(135deg, #FF3D00 0%, #CC3100 100%)"
+      },
+      "backdropBlur": {
+        "nav": "20px"
+      },
+      "maxWidth": {
+        "hero-content": "800px",
+        "about-text":   "500px",
+        "cta-text":     "500px",
+        "testimonial":  "1000px",
+        "service-desc": "350px"
+      },
+      "keyframes": {
+        "grainMove": {
+          "0%, 100%": { "transform": "translate(0, 0)" },
+          "10%":      { "transform": "translate(-5%, -10%)" },
+          "30%":      { "transform": "translate(3%, -15%)" },
+          "50%":      { "transform": "translate(12%, 9%)" },
+          "70%":      { "transform": "translate(9%, 4%)" },
+          "90%":      { "transform": "translate(-1%, 7%)" }
+        },
+        "marqueeScroll": {
+          "0%":   { "transform": "translateX(0)" },
+          "100%": { "transform": "translateX(-50%)" }
+        },
+        "scrollBounce": {
+          "0%, 100%": { "top": "10px", "opacity": "1" },
+          "50%":      { "top": "30px", "opacity": "0.3" }
+        },
+        "slideUp": {
+          "from": { "opacity": "0", "transform": "translateY(30px)" },
+          "to":   { "opacity": "1", "transform": "translateY(0)" }
+        },
+        "wordReveal": {
+          "from": { "opacity": "0", "transform": "translateY(100%)" },
+          "to":   { "opacity": "1", "transform": "translateY(0)" }
+        },
+        "fadeIn": {
+          "to": { "opacity": "1" }
+        }
+      },
+      "animation": {
+        "grain":         "grainMove 8s steps(10) infinite",
+        "marquee":       "marqueeScroll 25s linear infinite",
+        "scroll-bounce": "scrollBounce 2s ease-in-out infinite",
+        "slide-up":      "slideUp 1s ease forwards",
+        "word-reveal":   "wordReveal 1.2s cubic-bezier(0.65,0,0.35,1) forwards",
+        "fade-in":       "fadeIn 1s ease forwards"
+      },
+      "transitionTimingFunction": {
+        "essence":           "cubic-bezier(0.65, 0, 0.35, 1)",
+        "essence-dramatic":  "cubic-bezier(0.76, 0, 0.24, 1)"
+      }
+    }
+  }
+}

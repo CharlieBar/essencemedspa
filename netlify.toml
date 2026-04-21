@@ -1,0 +1,23 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[redirects]]
+  from = "/book"
+  to = "https://www.vagaro.com/essencemedspaandwellnesscenter/book-now"
+  status = 301
+
+[[redirects]]
+  from = "/book-now"
+  to = "https://www.vagaro.com/essencemedspaandwellnesscenter/book-now"
+  status = 301
