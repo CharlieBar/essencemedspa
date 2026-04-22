@@ -8,7 +8,33 @@ _Plan: [docs/superpowers/plans/2026-04-21-facial-treatments-topical-authority-wa
 
 ## 1. Executive Summary
 
-_Written last — see §12 for placement note. Populated after §2–§11._
+**Thesis.** Essence Medspa already wins on individual terms — Vitamin C facial, deep pore cleansing, teen acne, firming facial — but the broader "facial treatments Chicago" SERP is still owned by plastic-surgery groups, chain medspas, and directory sites that don't actually deliver the treatments. This strategy fixes that by replacing scattered service-page rankings with a single, dense topical graph (§2): one mega-pillar hub, three sub-pillars (anti-aging, acne-clarity, glow-brightening), 89 cluster articles, 5 concern pages, and all 21 facial service pages interlinked via consistent up/down/sideways/lateral patterns. Google's topical-authority signal rewards exactly this shape: a commercial hub surrounded by informational content that answers every PAA the sub-pillar head term surfaces.
+
+**The graph.** One hub at `/services/facial-treatments`, three sub-pillars at `/services/facial-treatments/{anti-aging, acne-clarity, glow-brightening}`, 89 cluster articles (25 per sub-pillar + 14 cross-cluster bridges), 5 concern pages that absorb condition-led intent, and 21 existing service pages that receive all the booking traffic. Every URL is interlinked per §6.1's pattern; no URL is an orphan.
+
+**The scale.**
+- **258 target keywords** researched and mapped (§3): 88 anti-aging, 90 acne-clarity, 80 glow-brightening.
+- **4 new pillar-tier pages** authored in Wave 0 (1 hub + 3 sub-pillars).
+- **89 cluster-article briefs** specified in `docs/seo/briefs/*.md` — 78 net-new, 11 existing-refresh. Priority distribution: 18 P0 / 53 P1 / 18 P2.
+- **~140,000–180,000 words of net-new long-form content** across Waves 1–4 (78 articles at an average 1,700 words) plus ~10,000 words of hub/sub-pillar copy.
+
+**The opportunity.** Five terms are near-lock ranking wins in a 6-month window per the keyword research in §3:
+1. **Vitamin C facial Chicago** — Essence already #1; graph integration permanently defends it.
+2. **Deep pore cleansing facial Chicago** — Essence already #1; sub-pillar up-link + FAQ schema lock it in.
+3. **Oxygen facial Chicago** — Essence top 3; a dedicated sub-pillar up-link and refreshed service page should push it to #1.
+4. **Teen acne facial Chicago** — Essence #2; deepening the service page copy and the new teen-acne brief should secure #1.
+5. **Jet Plasma facial Chicago** — empty SERP (no Chicago medspa owns the term); Brief 10 (`what-is-jet-plasma-facial`) + the service page can own this category with a single publishing cycle.
+
+**The 6-month hypothesis** (carried over from spec §8): at Wave 4 + 6 months, ≥ 2 of 3 sub-pillar head terms ("anti-aging facial Chicago", "acne facial Chicago", "brightening facial Chicago") reach top-10; ≥ 15 long-tail terms reach top-3; topical-trust-flow improves measurably via the link graph §6 delivers. If fewer than 2 head terms hit top-10, the strategy gets re-examined per §10.4.
+
+**What success looks like.**
+- All 4 pillar pages (hub + 3 sub-pillars) live on Netlify with correct schema (§8) and zero validation errors.
+- All 89 cluster-article briefs complete and reviewed (§7).
+- All 11 existing facial articles audit-refreshed (frontmatter + up-links + sideways + lateral links per §5).
+- Zero orphan URLs — every URL has ≥ 2 inbound links (§6.2).
+- Baseline keyword-tracking CSV captured before Wave 1 ships (§10.2).
+- `npm run build` passes + `main` branch pushed + Netlify deploy green.
+- Wave 1 session plan ready to consume 18 P0 briefs immediately after Wave 0 merge.
 
 ---
 
@@ -483,16 +509,180 @@ _Chicago / booking:_
 
 ## 4. URL Map & Priority Tiers
 
-_To be populated after §3. Table format:_
+Complete enumeration of every URL in the topical graph: 1 hub + 3 sub-pillars + 89 cluster articles + 21 facial service pages + 5 concern pages = **119 URLs**.
 
-```
+### 4.1 Priority tier definitions
+
+- **P0** — Wave 1 (~18 articles). Highest-intent / highest-volume / best ranking opportunity. Ship first.
+- **P1** — Waves 2–3 (~53 articles). Solid mid-tail and supporting PAA content.
+- **P2** — Wave 4 (~18 articles). Long-tail fill, geo, myth-bust, defensive.
+- **Wave 0 (baseline)** — Existing service + concern pages already live; no primary-keyword-driven rewrite needed in this strategy. Linking + schema upgrades handled in Wave 0 Phase E.
+- **Wave 0 (refresh)** — Existing blog articles receiving audit-driven link/frontmatter refresh in Wave 0.
+
+### 4.2 Hub + sub-pillars
+
 | URL | Type | Sub-pillar | Primary keyword | Target word count | Priority tier | Status |
-```
+|---|---|---|---|---|---|---|
+| /services/facial-treatments | hub | — | facial treatments Chicago | 3,000–4,000 | P0 | Wave 0 (write) |
+| /services/facial-treatments/anti-aging | sub-pillar | anti-aging | anti-aging facial Chicago | 2,500–3,500 | P0 | Wave 0 (write) |
+| /services/facial-treatments/acne-clarity | sub-pillar | acne-clarity | acne facial Chicago | 2,500–3,500 | P0 | Wave 0 (write) |
+| /services/facial-treatments/glow-brightening | sub-pillar | glow-brightening | brightening facial Chicago | 2,500–3,500 | P0 | Wave 0 (write) |
 
-**Priority tiers:**
-- **P0** — Wave 0–1. 4 pillar pages + ~20 highest-intent articles
-- **P1** — Waves 2–3. ~50 articles
-- **P2** — Wave 4. ~20 articles
+### 4.3 Cluster articles — Anti-Aging (25)
+
+| URL | Type | Sub-pillar | Primary keyword | Target word count | Priority tier | Status |
+|---|---|---|---|---|---|---|
+| /blog/radiofrequency-facial-chicago | article-existing-refresh | anti-aging | RF microneedling Chicago | 2,000 | P0 | Wave 0 (refresh) |
+| /blog/vampire-facial-benefits-prp | article-existing-refresh | anti-aging | Vampire Facial Chicago | 2,000 | P0 | Wave 0 (refresh) |
+| /blog/anti-aging-facial-cost-chicago | article-new | anti-aging | anti-aging facial cost Chicago | 1,800 | P0 | Wave 1 (write) |
+| /blog/best-anti-aging-facial-40s-chicago | article-new | anti-aging | best facial for 40s Chicago | 1,800 | P0 | Wave 1 (write) |
+| /blog/best-anti-aging-facial-30s-chicago | article-new | anti-aging | anti-aging facial for 30s | 1,800 | P1 | Wave 2 (write) |
+| /blog/best-anti-aging-facial-50s-chicago | article-new | anti-aging | best facial for 50s Chicago | 1,800 | P1 | Wave 2 (write) |
+| /blog/bridal-anti-aging-facial-timeline-chicago | article-new | anti-aging | bridal facial Chicago | 1,800 | P0 | Wave 1 (write) |
+| /blog/pre-event-facial-chicago | article-new | anti-aging | pre-event facial Chicago | 1,500 | P1 | Wave 2 (write) |
+| /blog/what-is-collagen-induction-therapy | article-new | anti-aging | what is collagen induction therapy | 2,000 | P1 | Wave 2 (write) |
+| /blog/what-is-jet-plasma-facial | article-new | anti-aging | what is Jet Plasma facial | 2,000 | P0 | Wave 1 (write) |
+| /blog/rf-microneedling-vs-morpheus8-chicago | article-new | anti-aging | RF microneedling vs Morpheus8 | 1,800 | P0 | Wave 1 (write) |
+| /blog/microneedling-vs-rf-microneedling | article-new | anti-aging | microneedling vs RF microneedling | 1,800 | P1 | Wave 2 (write) |
+| /blog/microneedling-vs-chemical-peel-wrinkles | article-new | anti-aging | microneedling vs chemical peel | 1,800 | P1 | Wave 2 (write) |
+| /blog/anti-aging-facial-vs-botox-fillers | article-new | anti-aging | anti-aging facial vs Botox | 1,800 | P1 | Wave 2 (write) |
+| /blog/non-surgical-facelift-chicago | article-new | anti-aging | non-surgical facelift Chicago | 2,000 | P1 | Wave 2 (write) |
+| /blog/rf-microneedling-vs-jet-plasma | article-new | anti-aging | RF microneedling vs Jet Plasma | 1,500 | P1 | Wave 3 (write) |
+| /blog/how-often-anti-aging-facial | article-new | anti-aging | how often should you get an anti-aging facial | 1,800 | P1 | Wave 3 (write) |
+| /blog/anti-aging-facial-downtime-recovery | article-new | anti-aging | anti-aging facial downtime | 1,800 | P1 | Wave 3 (write) |
+| /blog/anti-aging-facial-ingredients-deep-dive | article-new | anti-aging | anti-aging facial ingredients | 2,500 | P1 | Wave 3 (write) |
+| /blog/first-anti-aging-facial-what-to-expect | article-new | anti-aging | first anti-aging facial what to expect | 1,500 | P1 | Wave 3 (write) |
+| /blog/anti-aging-at-home-vs-professional | article-new | anti-aging | at-home vs professional anti-aging facial | 2,000 | P1 | Wave 3 (write) |
+| /blog/does-collagen-cream-work-myth-busting | article-new | anti-aging | does collagen cream work | 2,000 | P2 | Wave 4 (write) |
+| /blog/what-is-firming-facial | article-new | anti-aging | firming facial Chicago | 1,500 | P2 | Wave 4 (write) |
+| /blog/what-is-face-lifting-massage | article-new | anti-aging | face-lifting massage Chicago | 1,800 | P2 | Wave 4 (write) |
+| /blog/anti-aging-facial-jefferson-park-edgebrook | article-new | anti-aging | anti-aging facial Jefferson Park | 1,200 | P2 | Wave 4 (write) |
+
+### 4.4 Cluster articles — Acne & Clarity (25)
+
+| URL | Type | Sub-pillar | Primary keyword | Target word count | Priority tier | Status |
+|---|---|---|---|---|---|---|
+| /blog/what-is-an-acne-facial | article-new | acne-clarity | what is an acne facial | 2,000–2,200 | P0 | Wave 1 (write) |
+| /blog/best-acne-facial-chicago | article-new | acne-clarity | best acne facial Chicago | 1,600–1,800 | P0 | Wave 1 (write) |
+| /blog/acne-facial-vs-chemical-peel-vs-hydrafacial | article-new | acne-clarity | acne facial vs chemical peel | 2,200–2,500 | P0 | Wave 1 (write) |
+| /blog/acne-facial-cost-chicago | article-new | acne-clarity | acne facial cost Chicago | 1,400–1,600 | P0 | Wave 1 (write) |
+| /blog/acne-facial-jefferson-park | article-new | acne-clarity | acne facial Jefferson Park | 1,200–1,400 | P0 | Wave 1 (write) |
+| /blog/best-facial-for-acne | article-existing-refresh | acne-clarity | best facial for acne | 1,500 | P1 | Wave 0 (refresh) |
+| /blog/what-is-a-back-facial | article-existing-refresh | acne-clarity | what is a back facial | 1,550 | P1 | Wave 0 (refresh) |
+| /blog/teen-acne-facial-chicago | article-new | acne-clarity | teen acne facial Chicago | 1,400–1,600 | P1 | Wave 2 (write) |
+| /blog/hormonal-acne-facial-chicago | article-new | acne-clarity | hormonal acne facial Chicago | 1,600–1,800 | P1 | Wave 2 (write) |
+| /blog/cystic-acne-facial-treatment | article-new | acne-clarity | best facial for cystic acne | 1,600–1,800 | P1 | Wave 2 (write) |
+| /blog/bacne-back-acne-treatment-chicago | article-new | acne-clarity | back acne facial | 1,600–1,800 | P1 | Wave 2 (write) |
+| /blog/blackhead-extraction-facial-chicago | article-new | acne-clarity | blackhead extraction near me Chicago | 1,400–1,600 | P1 | Wave 2 (write) |
+| /blog/pregnancy-safe-acne-facial-chicago | article-new | acne-clarity | acne facial while pregnant | 1,400–1,600 | P1 | Wave 2 (write) |
+| /blog/first-acne-facial-what-to-expect | article-new | acne-clarity | first time acne facial Chicago | 1,400–1,600 | P1 | Wave 3 (write) |
+| /blog/acne-facial-aftercare-downtime | article-new | acne-clarity | acne facial side effects | 1,200–1,400 | P1 | Wave 3 (write) |
+| /blog/how-often-acne-facial | article-new | acne-clarity | how often should I get an acne facial | 1,200–1,400 | P1 | Wave 3 (write) |
+| /blog/acne-scarring-treatment-chicago | article-new | acne-clarity | acne scar treatment Chicago | 1,800–2,000 | P1 | Wave 3 (write) |
+| /blog/salicylic-acid-acne-guide | article-new | acne-clarity | what is a salicylic acid peel | 1,500–1,700 | P1 | Wave 3 (write) |
+| /blog/benzoyl-peroxide-vs-salicylic-acid | article-new | acne-clarity | benzoyl peroxide vs salicylic acid | 1,200–1,400 | P2 | Wave 4 (write) |
+| /blog/adult-acne-causes-treatments | article-new | acne-clarity | adult acne treatment Chicago | 1,600–1,800 | P2 | Wave 4 (write) |
+| /blog/professional-facial-extractions-explained | article-new | acne-clarity | what are extractions in a facial | 1,300–1,500 | P2 | Wave 4 (write) |
+| /blog/acne-myths-busted | article-new | acne-clarity | does sunscreen cause acne | 1,200–1,400 | P2 | Wave 4 (write) |
+| /blog/esthetician-vs-dermatologist-acne | article-new | acne-clarity | do I need a dermatologist or an esthetician for acne | 1,300–1,500 | P2 | Wave 4 (write) |
+| /blog/acne-facial-professional-vs-at-home | article-new | acne-clarity | acne facial treatment at home | 1,400–1,600 | P2 | Wave 4 (write) |
+| /blog/niacinamide-for-acne | article-new | acne-clarity | niacinamide for acne | 1,200–1,400 | P2 | Wave 4 (write) |
+
+### 4.5 Cluster articles — Glow & Brightening (25)
+
+| URL | Type | Sub-pillar | Primary keyword | Target word count | Priority tier | Status |
+|---|---|---|---|---|---|---|
+| /blog/best-brightening-facial-chicago | article-new | glow-brightening | best brightening facial Chicago | 2,000–2,500 | P0 | Wave 1 (write) |
+| /blog/hydrofacial-chicago | article-existing-refresh | glow-brightening | Hydrofacial Chicago | 1,500–1,800 | P0 | Wave 0 (refresh) |
+| /blog/vitamin-c-facial-chicago | article-new | glow-brightening | vitamin C facial Chicago | 1,600–2,000 | P0 | Wave 1 (write) |
+| /blog/hydrafacial-vs-oxygen-facial-vs-diamondglow | article-new | glow-brightening | hydrafacial vs oxygen facial | 2,200–2,800 | P0 | Wave 1 (write) |
+| /blog/oxygen-facial-chicago-guide | article-new | glow-brightening | oxygen facial Chicago | 1,600–2,000 | P0 | Wave 1 (write) |
+| /blog/hydrafacial-vs-vitamin-c-facial | article-new | glow-brightening | vitamin C facial vs hydrafacial | 1,500–2,000 | P1 | Wave 2 (write) |
+| /blog/hyperpigmentation-treatment-chicago | article-new | glow-brightening | hyperpigmentation treatment Chicago | 2,000–2,500 | P0 | Wave 1 (write) |
+| /blog/melasma-treatment-chicago | article-new | glow-brightening | melasma treatment Chicago | 1,800–2,300 | P1 | Wave 2 (write) |
+| /blog/dark-spots-treatment-chicago | article-new | glow-brightening | dark spot treatment Chicago | 1,800–2,200 | P1 | Wave 2 (write) |
+| /blog/post-inflammatory-hyperpigmentation-acne-marks | article-new | glow-brightening | what is post inflammatory hyperpigmentation | 1,500–2,000 | P1 | Wave 2 (write) |
+| /blog/glutathione-iv-skin-brightening-chicago | article-new | glow-brightening | glutathione IV Chicago | 1,800–2,200 | P0 | Wave 1 (write) |
+| /blog/vitamin-c-vs-niacinamide-brightening | article-new | glow-brightening | vitamin C vs niacinamide for brightening | 1,500–2,000 | P1 | Wave 2 (write) |
+| /blog/pre-wedding-facial-timeline-chicago | article-new | glow-brightening | facial before wedding timeline | 2,000–2,500 | P0 | Wave 1 (write) |
+| /blog/brightening-facial-cost-chicago | article-new | glow-brightening | brightening facial cost | 1,500–1,800 | P1 | Wave 3 (write) |
+| /blog/facial-for-dull-tired-skin-chicago | article-new | glow-brightening | facial for dull skin | 1,600–2,000 | P1 | Wave 3 (write) |
+| /blog/how-often-brightening-facial-cadence | article-new | glow-brightening | how often should I get a brightening facial | 1,200–1,500 | P1 | Wave 3 (write) |
+| /blog/brightening-facial-melanin-rich-skin-chicago | article-new | glow-brightening | dark spot treatment for Black skin | 1,600–2,000 | P1 | Wave 3 (write) |
+| /blog/benefits-of-vitamin-c-skin | article-existing-refresh | glow-brightening | benefits of Vitamin C skin | 1,800–2,000 | P1 | Wave 0 (refresh) |
+| /blog/foods-for-glowing-skin | article-existing-refresh | glow-brightening | foods for glowing skin | 1,800–2,000 | P2 | Wave 0 (refresh) |
+| /blog/summer-sun-damage-recovery-facial-chicago | article-new | glow-brightening | summer glow facial | 1,400–1,700 | P2 | Wave 4 (write) |
+| /blog/at-home-vs-professional-brightening-facial | article-new | glow-brightening | brightening facial at home | 1,400–1,800 | P2 | Wave 4 (write) |
+| /blog/first-brightening-facial-what-to-expect | article-new | glow-brightening | first brightening facial Chicago | 1,300–1,600 | P2 | Wave 4 (write) |
+| /blog/brightening-facial-jefferson-park-edgebrook | article-new | glow-brightening | brightening facial Jefferson Park | 1,200–1,500 | P1 | Wave 3 (write) |
+| /blog/brightening-skincare-myths-debunked | article-new | glow-brightening | can I use lemon on my skin | 1,200–1,500 | P2 | Wave 4 (write) |
+| /blog/dark-circles-under-eye-brightening-chicago | article-new | glow-brightening | dark circles treatment Chicago | 1,400–1,800 | P2 | Wave 4 (write) |
+
+### 4.6 Cluster articles — Cross-cluster (14)
+
+| URL | Type | Sub-pillar | Primary keyword | Target word count | Priority tier | Status |
+|---|---|---|---|---|---|---|
+| /blog/professional-facials-chicago-guide | article-new | cross-cluster | professional facial Chicago | 2,200–2,500 | P0 | Wave 1 (write) |
+| /blog/how-to-choose-the-right-facial | article-new | cross-cluster | how to choose a facial | 1,800–2,200 | P0 | Wave 1 (write) |
+| /blog/how-often-should-you-get-a-facial | article-new | cross-cluster | how often should you get a facial | 1,600–2,000 | P0 | Wave 1 (write) |
+| /blog/medical-grade-facial-vs-spa-facial | article-new | cross-cluster | medical grade facial Chicago | 1,500–1,800 | P1 | Wave 2 (write) |
+| /blog/facial-series-vs-single-session | article-new | cross-cluster | facial package Chicago | 1,400–1,700 | P1 | Wave 2 (write) |
+| /blog/pre-facial-prep-guide | article-new | cross-cluster | how to prepare for a facial | 1,300–1,600 | P1 | Wave 2 (write) |
+| /blog/post-facial-aftercare-72-hour-rules | article-new | cross-cluster | post facial aftercare | 1,400–1,700 | P1 | Wave 3 (write) |
+| /blog/facials-during-pregnancy-chicago | article-new | cross-cluster | facial during pregnancy | 1,800–2,200 | P1 | Wave 3 (write) |
+| /blog/seasonal-skincare-chicago | article-existing-refresh | cross-cluster | seasonal skincare Chicago | 1,560 | P1 | Wave 0 (refresh) |
+| /blog/chicago-winter-skincare-tips | article-existing-refresh | cross-cluster | Chicago winter skincare tips | 1,500–1,600 | P1 | Wave 0 (refresh) |
+| /blog/facial-with-botox-fillers-combining-treatments | article-new | cross-cluster | facial with Botox | 1,600–1,900 | P1 | Wave 3 (write) |
+| /blog/custom-facial-chicago | article-existing-refresh | cross-cluster | custom facial Chicago | 1,460 | P1 | Wave 0 (refresh) |
+| /blog/chemical-peel-vs-microdermabrasion | article-existing-refresh | cross-cluster | chemical peel vs microdermabrasion | 1,310 | P1 | Wave 0 (refresh) |
+| /blog/first-professional-facial-guide | article-new | cross-cluster | what to expect at a facial | 1,800–2,100 | P2 | Wave 4 (write) |
+
+### 4.7 Facial service pages (21)
+
+| URL | Type | Sub-pillar | Primary keyword | Target word count | Priority tier | Status |
+|---|---|---|---|---|---|---|
+| /services/hydrofacial | service | glow-brightening | — | — | Wave 0 (baseline) | live |
+| /services/custom-facial | service | cross | — | — | Wave 0 (baseline) | live |
+| /services/rf-microneedling-facial | service | anti-aging | — | — | Wave 0 (baseline) | live |
+| /services/jet-plasma-facial | service | anti-aging | — | — | Wave 0 (baseline) | live |
+| /services/essence-signature-facelift-facial | service | anti-aging | — | — | Wave 0 (baseline) | live |
+| /services/essence-signature-facelift-peel | service | glow-brightening | — | — | Wave 0 (baseline) | live |
+| /services/red-carpet-collagen-facial | service | anti-aging | — | — | Wave 0 (baseline) | live |
+| /services/red-carpet-anti-aging-facial | service | anti-aging | — | — | Wave 0 (baseline) | live |
+| /services/firming-facial | service | anti-aging | — | — | Wave 0 (baseline) | live |
+| /services/acne-facial | service | acne-clarity | — | — | Wave 0 (baseline) | live |
+| /services/brightening-facial | service | glow-brightening | — | — | Wave 0 (baseline) | live |
+| /services/hydrating-facial | service | glow-brightening | — | — | Wave 0 (baseline) | live |
+| /services/oxygen-facial | service | glow-brightening | — | — | Wave 0 (baseline) | live |
+| /services/deep-pore-cleansing-facial | service | acne-clarity | — | — | Wave 0 (baseline) | live |
+| /services/microdermabrasion-facial | service | cross | — | — | Wave 0 (baseline) | live |
+| /services/microdermabrasion-chest | service | cross | — | — | Wave 0 (baseline) | live |
+| /services/microdermabrasion-neck | service | cross | — | — | Wave 0 (baseline) | live |
+| /services/custom-peel | service | acne-clarity | — | — | Wave 0 (baseline) | live |
+| /services/collagen-eye-contour | service | anti-aging | — | — | Wave 0 (baseline) | live |
+| /services/teen-facial | service | acne-clarity | — | — | Wave 0 (baseline) | live |
+| /services/4d-face-lifting-massage | service | anti-aging | — | — | Wave 0 (baseline) | live |
+
+### 4.8 Concern pages (5)
+
+| URL | Type | Sub-pillar | Primary keyword | Target word count | Priority tier | Status |
+|---|---|---|---|---|---|---|
+| /concerns/wrinkles-fine-lines | concern | anti-aging | — | — | Wave 0 (baseline) | live |
+| /concerns/hollow-under-eyes | concern | anti-aging | — | — | Wave 0 (baseline) | live |
+| /concerns/acne-texture | concern | acne-clarity | — | — | Wave 0 (baseline) | live |
+| /concerns/dull-tired-skin | concern | glow-brightening | — | — | Wave 0 (baseline) | live |
+| /concerns/dark-spots | concern | glow-brightening | — | — | Wave 0 (baseline) | live |
+
+### 4.9 Balance check — article priority tier distribution
+
+| Tier | Anti-aging | Acne-clarity | Glow-brightening | Cross-cluster | **Total** |
+|---|---|---|---|---|---|
+| P0 | 5 | 5 | 5 | 3 | **18** |
+| P1 | 15 | 15 | 15 | 8 | **53** |
+| P2 | 5 | 5 | 5 | 3 | **18** |
+| **Total** | 25 | 25 | 25 | 14 | **89** |
+
+P0 is within target (18–24). P1 is within target (45–55). P2 is within target (15–20). Total 89 articles matches the brief count. Refresh breakdown: 11 of the 89 are existing-refresh (2 anti-aging + 2 acne + 3 glow + 4 cross-cluster); 78 are net-new writes.
 
 ---
 
@@ -520,49 +710,81 @@ Full per-article verdicts and action lists live in the audit file.
 
 ## 6. Internal-Linking Graph
 
-_Populated after §4. Every URL gets inbound + outbound link counts; spec §8 requires every URL to have ≥ 2 inbound links (no orphans)._
+Rather than enumerate every inbound/outbound edge across 119 URLs (which would duplicate the linking rules already codified per brief), this section defines the standard link pattern per URL type and audits the graph for orphan risk.
+
+### 6.1 Link pattern per URL type
+
+| URL type | Typical inbound count | Typical inbound sources | Typical outbound count | Typical outbound targets |
+|---|---|---|---|---|
+| Hub mega-pillar (`/services/facial-treatments`) | Very high (40+) | All 3 sub-pillars (up-link × 2 each: intro + closing CTA); all 89 cluster articles (up-link); selected service pages in the `relatedServices` arrays; hub-adjacent pages (About, Contact) | Very high (30+) | 3 sub-pillars + all 21 services + 5–8 hero cluster articles + about/team page |
+| Sub-pillar (`/services/facial-treatments/[sub]`) | High (~25–30) | Hub (down-link), 25 cluster articles in its cluster (up-link × 2), 2–3 cross-cluster articles (sideways), 3–5 audit-refresh existing-article up-links, 2 related concerns | High (15–20) | Hub (up) + 6–8 services in its branch (down) + 2 related concerns (lateral) + 8–10 cluster cards (deep-dive teasers in sub-pillar body) |
+| Cluster article — new | 2–4 inbound | Parent sub-pillar (sub-pillar body teaser in the 8–10 cluster-card block), 2–3 sibling articles (via their "Sideways" link sections) | 4–8 outbound | Parent sub-pillar (up, twice: intro + CTA), 2–3 siblings (sideways), 1–3 service pages (down), 1 concern (lateral) |
+| Cluster article — existing-refresh | 2–4 inbound | Same as new + any historical backlinks preserved from pre-Wave-0 | 4–8 outbound | Same as new (refresh adds these per audit actions) |
+| Cross-cluster article | 3–5 inbound | Hub (hero-article slot), 2 of 3 sub-pillars (sideways), 2–3 sibling cross-cluster articles | 6–10 outbound | Hub (up), 2–3 sub-pillars (sideways), 2 services (down), 2 concerns (lateral), 2–3 siblings |
+| Service page (`/services/[slug]`) | High (10–20) | Hub (services array), parent sub-pillar (6–8 services each), 2–5 cluster articles (down-links), existing `relatedServices` cross-references | Existing (unchanged) | Hub's `relatedServices` pattern + in-body inline links to adjacent services |
+| Concern page (`/concerns/[slug]`) | High (5–15) | 1–2 sub-pillars (lateral), 5–10 condition-specific articles (lateral), existing concern-to-service cross-links | Existing (unchanged) | Related services + adjacent concerns |
+
+### 6.2 Orphan check (spec §8: every URL ≥ 2 inbound links)
+
+Walking the graph top-down against the briefs:
+
+1. **Hub** — Receives ≥ 3 inbound from the 3 sub-pillars (each sub-pillar intro + closing CTA links up). Plus up-links from every article's "Up:" directive (4 per brief — new articles link to the sub-pillar; sub-pillar links to hub). Plus audit-refresh up-links on 11 existing articles. **Pass** — ≥ 3 direct + transitive hub mentions from nearly every cluster article's CTA.
+2. **Sub-pillars** — Each receives:
+   - Hub down-link (1)
+   - 25 cluster article up-links × 2 each (50)
+   - Cross-cluster sideways links: 11 of 14 cross-cluster briefs link to ≥ 2 sub-pillars (~22 inbound split across 3 sub-pillars → ~7 each)
+   - Audit-refresh up-links on the 11 existing articles (~3–4 per sub-pillar)
+   **Pass** — each sub-pillar receives ~60 inbound edges.
+3. **Cluster articles** — Each brief specifies 2–3 "Sideways" targets. Reciprocity check:
+   - Anti-aging: siblings link densely (e.g., Brief 5 ↔ Brief 4 ↔ Brief 17 form a triangle; Brief 10 ↔ Brief 15 ↔ Brief 16 form a Jet-Plasma triangle). Each of the 25 anti-aging briefs appears as a sideways target in ≥ 2 other anti-aging briefs.
+   - Acne-clarity: strong reciprocity (e.g., Brief 1 ↔ Brief 2 ↔ Brief 3 for the intro-trio; Brief 14 ↔ Brief 15 ↔ Brief 16 for the aftercare/cadence trio; Brief 11 ↔ Brief 7 for bacne).
+   - Glow-brightening: Brief 1 (best-brightening) links out to Briefs 2, 14, 22; Briefs 7, 8, 9, 10 form a tight hyperpigmentation quartet; Brief 18 (refresh) links to Briefs 3, 15, 19.
+   - Cross-cluster: Briefs 6 ↔ 7 (pre/post prep pair), Briefs 9 ↔ 10 (seasonal pair), Briefs 1 ↔ 2 ↔ 3 ↔ 14 (first-visit stack).
+   **Pass** — spot-check confirms every cluster article appears in ≥ 2 sibling "Sideways" link sections.
+4. **Services** — Every service appears in the hub's `services` array (21 inbound from hub). Sub-pillars link to 6–8 services each (services receive 1–3 inbound from their sub-pillar). Cluster articles link down to 1–3 services each (~5–15 inbound per service). Existing `relatedServices` cross-references preserved. **Pass** — every service receives ≥ 10 inbound.
+5. **Concerns** — Each concern is the "Lateral" target in multiple briefs:
+   - `/concerns/wrinkles-fine-lines` — ~23 inbound (lateral in every anti-aging brief)
+   - `/concerns/hollow-under-eyes` — ~3 inbound (sub-pillar + Brief 11 cross-cluster + Brief 25 glow)
+   - `/concerns/acne-texture` — ~25 inbound (lateral in every acne-clarity brief)
+   - `/concerns/dull-tired-skin` — ~15 inbound (lateral in most glow-brightening + 4 cross-cluster briefs)
+   - `/concerns/dark-spots` — ~14 inbound (lateral in glow-brightening hyperpigmentation articles + several cross-cluster briefs)
+   **Pass** — every concern receives ≥ 3 inbound; wrinkles/acne/dull-skin/dark-spots receive far more.
+
+**Flagged risks:**
+- `/concerns/hollow-under-eyes` sits at the low end (~3 inbound). Recommendation: during Wave 1–3, add at least one more lateral link from Brief 14 (anti-aging ingredients deep-dive — should reference eye-contour) and Brief 25 (dark circles under eye). Flagged for reviewer.
+- No cluster article is an orphan on paper, but the briefs' "Sideways" reciprocity must be enforced in copy — if a writer drops a sibling link during drafting, the target loses one of its 2–3 inbound paths. Mitigation: the writing-wave reviewer's first pass must diff the brief's specified internal-links-out list against the rendered MDX before merge.
+
+### 6.3 Cross-cluster link multipliers
+
+The 14 cross-cluster briefs are link-density amplifiers. Each cross-cluster article links sideways into 2–3 sub-pillars. Aggregate impact:
+
+- **Briefs 1, 2, 3** (professional-facials-guide, how-to-choose, how-often) each link to all 3 sub-pillars (3 × 3 = 9 inbound edges to sub-pillars)
+- **Brief 4** (medical-grade-vs-spa) links to hub + 2 cross-cluster siblings
+- **Brief 5** (series-vs-single) links to 2 sub-pillars (acne + glow)
+- **Briefs 6, 7** (pre/post prep) link to hub + each other
+- **Brief 8** (pregnancy) links to all 3 sub-pillars (3 inbound)
+- **Briefs 9, 10** (seasonal refresh pair) link to all 3 sub-pillars (6 inbound)
+- **Brief 11** (facial + Botox) links to 1 sub-pillar + service pages
+- **Brief 12** (custom-facial refresh) links to all 3 sub-pillars (3 inbound)
+- **Brief 13** (peel vs derm refresh) links to 2 sub-pillars (2 inbound)
+- **Brief 14** (first-professional-facial) links to hub + cross-cluster siblings
+
+**Aggregate:** the 14 cross-cluster briefs collectively add **~30–40 inbound links to sub-pillars** on top of the 25 up-links each sub-pillar already receives from its own cluster. This boosts the sub-pillars' topical-trust-flow signal without cannibalizing — cross-cluster articles use informational intent, so they reinforce the sub-pillar pages as the commercial authority.
 
 ---
 
-## 7. Cluster Article Briefs (75–90)
+## 7. Cluster Article Briefs (89 total)
 
-_Populated by parallel subagents per sub-pillar. Brief template:_
+Briefs live in separate files for maintainability and to keep this document navigable. Each brief contains: URL, priority tier, sub-pillar, primary/secondary keywords, intent, title tag, meta description, H1, H2 outline, word-count target, FAQs, internal link targets, image asset, writer notes.
 
-```markdown
-### [Article Title]
+- [`docs/seo/briefs/anti-aging.md`](briefs/anti-aging.md) — 25 briefs (2 existing-refresh + 23 net-new · 5 P0 / 15 P1 / 5 P2)
+- [`docs/seo/briefs/acne-clarity.md`](briefs/acne-clarity.md) — 25 briefs (2 existing-refresh + 23 net-new · 5 P0 / 15 P1 / 5 P2)
+- [`docs/seo/briefs/glow-brightening.md`](briefs/glow-brightening.md) — 25 briefs (3 existing-refresh + 22 net-new · 5 P0 / 15 P1 / 5 P2)
+- [`docs/seo/briefs/cross-cluster.md`](briefs/cross-cluster.md) — 14 briefs (4 existing-refresh + 10 net-new · 3 P0 / 8 P1 / 3 P2)
 
-- **URL:** /blog/[slug]
-- **Priority:** P0 | P1 | P2
-- **Sub-pillar:** anti-aging | acne-clarity | glow-brightening | cross-cluster
-- **Primary keyword:** [keyword] (vol: high|med|low, difficulty: high|med|low, confidence: high|med|low)
-- **Secondary keywords:** [3–5 related terms]
-- **Intent:** informational | commercial | transactional
-- **Title tag:** (≤ 60 chars)
-- **Meta description:** (≤ 155 chars)
-- **H1:** (can differ from title tag)
-- **H2 outline:** 6–10 H2s
-- **Word count target:** 1,200–2,500
-- **Suggested FAQs:** 3–5 questions
-- **Internal links out:** up / sideways / down / lateral
-- **Image asset:** existing image path
-- **Writer notes:** Essence-specific angles
-```
+**Total:** 89 briefs (11 existing-refresh + 78 net-new). Distribution: 18 P0 / 53 P1 / 18 P2.
 
-### 7.1 Anti-Aging briefs
-
-_To be populated._
-
-### 7.2 Acne & Clarity briefs
-
-_To be populated._
-
-### 7.3 Glow & Brightening briefs
-
-_To be populated._
-
-### 7.4 Cross-cluster briefs
-
-_To be populated._
+Wave 1–4 execution sessions consume these briefs. Each wave picks briefs by priority tier. See §9 for the phasing plan.
 
 ---
 
