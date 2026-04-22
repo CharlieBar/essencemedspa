@@ -27,10 +27,15 @@ interface PageProps {
 
 // Statically generate every /services/[slug] route by enumerating the content
 // directory at build time. All 71 services + 5 hubs are registered in src/lib/content.ts.
+// facial-treatments is excluded here — served by the literal route at
+// src/app/services/facial-treatments/page.tsx so that /services/facial-treatments/[subPillar]
+// can nest beneath it.
 export async function generateStaticParams() {
   return [
     ...getAllServiceSlugs().map((slug) => ({ slug })),
-    ...getAllHubSlugs().map((slug) => ({ slug })),
+    ...getAllHubSlugs()
+      .filter((slug) => slug !== "facial-treatments")
+      .map((slug) => ({ slug })),
   ];
 }
 

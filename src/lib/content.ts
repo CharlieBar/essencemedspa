@@ -4,7 +4,9 @@ import matter from "gray-matter";
 import readingTime from "reading-time";
 import type {
   ConcernPageContent,
+  FAQItem,
   HeroSection,
+  HubSubPillarCard,
   SEOMeta,
   ServiceCard,
   ServicePageContent,
@@ -175,6 +177,25 @@ export interface HubData {
     headline: string;
     items: { occasion: string; description: string }[];
   };
+  // Pillar-grade optional fields — present on hubs elevated to pillar status.
+  deepIntro?: {
+    eyebrow?: string;
+    headline: string;
+    body: string;
+  };
+  subPillarCards?: HubSubPillarCard[];
+  localSignals?: {
+    eyebrow?: string;
+    headline: string;
+    body: string;
+  };
+  teamSection?: {
+    eyebrow?: string;
+    headline: string;
+    body: string;
+    ctaHref: string;
+  };
+  pillarFaqs?: FAQItem[];
   ctaSection: {
     headline: string;
     subheadline: string;
