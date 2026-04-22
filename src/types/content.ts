@@ -186,6 +186,14 @@ export interface ServicePageContent {
   };
 }
 
+export interface HubSubPillarCard {
+  title: string;
+  tagline: string;
+  description: string;
+  href: string;
+  image?: ImageAsset;
+}
+
 export interface HubPageContent {
   seo: SEOMeta;
   hero: HeroSection;
@@ -201,6 +209,26 @@ export interface HubPageContent {
     services: ServiceCard[];
   }[];
   services?: ServiceCard[];
+  // Pillar-grade optional sections (added for topical-authority hub upgrade).
+  // Used only on hubs being elevated to pillar status (e.g. facial-treatments).
+  deepIntro?: {
+    eyebrow?: string;
+    headline: string;
+    body: string;
+  };
+  subPillarCards?: HubSubPillarCard[];
+  localSignals?: {
+    eyebrow?: string;
+    headline: string;
+    body: string;
+  };
+  teamSection?: {
+    eyebrow?: string;
+    headline: string;
+    body: string;
+    ctaHref: string;
+  };
+  pillarFaqs?: FAQItem[];
   ctaSection: {
     headline: string;
     subheadline: string;
