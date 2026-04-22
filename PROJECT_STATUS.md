@@ -142,3 +142,28 @@ After Step 6, megamenu links now use `group-hover:text-essence-accent` (interact
 6. ~~Deploy to Netlify~~ — ✅ live
 7. **Lighthouse + mobile responsiveness pass** against the live [essencemedspa.netlify.app](https://essencemedspa.netlify.app/).
 8. **Remaining §5 improvements** (low-priority polish): 5.2 HeroSection framer-motion timing trim, 5.3/5.4 border token formalization, 5.6 megamenu dropdown accent.
+
+---
+
+## 9. Topical Authority — Wave 0 (2026-04-21)
+
+Wave 0 of the Facial Treatments topical-authority build shipped today. See `docs/seo/facial-treatments-topical-authority.md` for the full strategy.
+
+**Delivered:**
+- ✅ Strategy doc (~9,300 words): §1 exec summary, §2 topical graph, §3 258-keyword research, §4 119-URL map, §5 audit summary, §6 link graph, §7 brief index, §8 schema, §9 phasing, §10 measurement
+- ✅ 89 cluster-article briefs across 4 files under `docs/seo/briefs/`: anti-aging (25), acne-clarity (25), glow-brightening (25), cross-cluster (14) — ready inputs for Waves 1–4
+- ✅ Hub upgraded to pillar-grade at `/services/facial-treatments` (~3,000 new words: deepIntro, subPillarCards×3, localSignals, teamSection, 12 pillarFaqs)
+- ✅ 3 new sub-pillar pages live at `/services/facial-treatments/{anti-aging,acne-clarity,glow-brightening}` — ~14,300 words total across the 3 files
+- ✅ 11 existing facial articles audit-refreshed with sub-pillar link graph; `chicago-winter-skincare-tips` expanded from ~1,150 → ~2,264 words
+- ✅ Page count: 133 → 136 (+3 sub-pillars)
+- ✅ `npm run build` passes, 0 errors
+
+**Architecture:**
+- Hub moved from `/services/[slug]` to literal `src/app/services/facial-treatments/page.tsx` so sub-pillar routes can nest beneath
+- Sub-pillars served by dynamic `/services/facial-treatments/[subPillar]` route (3 static slugs)
+- Content in `src/content/sub-pillars/*.ts`, template in `src/components/sections/SubPillarTemplate.tsx`
+- JSON-LD: MedicalWebPage + BreadcrumbList + FAQPage on all new pages
+
+**VERIFY WITH ESSENCE TEAM flags** inserted across sub-pillar and hub content on unverifiable protocol claims (~8 total). Islam review needed before Waves 1–4 execution ships articles that may echo those claims.
+
+**Next:** Wave 1 — write the ~20 P0 cluster articles from the briefs. Spawn a new session using `docs/seo/briefs/*.md` as input. Expected article batch: 5 anti-aging P0 + 5 acne-clarity P0 + 5 glow-brightening P0 + 3 cross-cluster P0.
