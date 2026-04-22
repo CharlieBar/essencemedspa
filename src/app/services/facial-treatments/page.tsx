@@ -199,7 +199,7 @@ export default function FacialTreatmentsHubPage() {
           <div className="px-page max-w-4xl">
             <SectionHeader
               number="04"
-              eyebrow={hub.localSignals.eyebrow ?? "Chicago · Jefferson Park"}
+              eyebrow={hub.localSignals.eyebrow ?? "Chicago · Edgebrook"}
               headline={hub.localSignals.headline}
               className="mb-12"
             />
